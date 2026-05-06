@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratik Rehber | Sünnetin İzinde Çevre</title>
+  <meta name="description" content="Günlük hayatta sünnet ve sürdürülebilirlik: Evde, okulda ve sokakta çevreci olmak.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    .liste-madde {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--beyaz);
+      border-radius: 10px;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid rgba(45,106,79,0.08);
+    }
+    .liste-madde .ikon { font-size: 1.5rem; min-width: 36px; }
+    .liste-madde h4 { color: var(--koyu-yesil); font-size:0.95rem; margin-bottom:0.2rem; }
+    .liste-madde p { font-size:0.88rem; color: var(--gri-metin); }
+
+    .karsilastirma {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .karsilastirma-kart {
+      background: var(--beyaz);
+      border-radius: 14px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+    .karsilastirma-kart.sunnet { border-top: 4px solid var(--altin); }
+    .karsilastirma-kart.modern { border-top: 4px solid var(--acik-yesil); }
+    .karsilastirma-kart h3 { font-size:1rem; color:var(--koyu-yesil); margin-bottom:1rem; }
+    .karsilastirma-kart ul { list-style: none; padding: 0; }
+    .karsilastirma-kart ul li { font-size:0.9rem; color:var(--gri-metin); margin-bottom:0.5rem; padding-left:0.5rem; }
+    .karsilastirma-kart.sunnet ul li::before { content:'⭐ '; }
+    .karsilastirma-kart.modern ul li::before { content:'✅ '; }
+
+    @media(max-width:600px) { .karsilastirma { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🌿</span>
+    <span>Sünnetin İzinde Çevre<small>Sosyalfest 2025 Projesi</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hadisler.html">Hadisler</a></li>
+    <li><a href="pratik-rehber.html">Pratik Rehber</a></li>
+    <li><a href="medya.html">Medya</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="iletisim.html">İletişim</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="sayfa-baslik">
+  <h1>🌿 Günlük Hayatımızda Sünnet ve Sürdürülebilirlik</h1>
+  <p>Bugün uygulayabileceğin pratik tavsiyeler ve haftalık çevre görevleri</p>
+</div>
+
+<!-- EVDE VE OKULDA -->
+<section class="arka-acik">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">🏠 Pratik Tavsiyeler</span>
+      <h2>Evde ve Okulda Neler Yapabiliriz?</h2>
+      <p>Sünnet-i Nebevi'nin ruhuna uygun, bugünden başlayabileceğin adımlar</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+      <div>
+        <h3 style="color:var(--koyu-yesil); font-size:1.1rem; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:2px solid var(--altin);">🏡 Evde</h3>
+        <div class="liste-madde">
+          <span class="ikon">💧</span>
+          <div>
+            <h4>Musluk Tasarrufu</h4>
+            <p>Diş fırçalarken, abdest alırken, bulaşık yıkarken musluğu kapatın. Günde 10-15 litre su tasarruf edersiniz.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🛍️</span>
+          <div>
+            <h4>Bez Torba Kullanımı</h4>
+            <p>Alışverişte plastik torba yerine bez torba kullanmak, yılda yüzlerce plastik atıktan kurtulmanızı sağlar.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🍽️</span>
+          <div>
+            <h4>Yemek İsrafını Önle</h4>
+            <p>"Allah israf edenleri sevmez" (Araf 31). Tabağınızdaki yemeği bitirin, artanları sokak hayvanlarıyla paylaşın.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🔌</span>
+          <div>
+            <h4>Enerji Tasarrufu</h4>
+            <p>Kullanılmayan odaların ışığını söndürmek, bekleme modundaki cihazları kapatmak sünnetin israf yasağıyla örtüşür.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🌱</span>
+          <div>
+            <h4>Saksı Bitkisi Yetiştir</h4>
+            <p>Evde bile bir fidan dikilebilir. Balkon saksısındaki bir bitki, hem oksijen üretir hem de peygamberimizin sünnetini ihya eder.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="color:var(--koyu-yesil); font-size:1.1rem; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:2px solid var(--acik-yesil);">🏫 Okulda</h3>
+        <div class="liste-madde">
+          <span class="ikon">♻️</span>
+          <div>
+            <h4>Geri Dönüşüm Kutuları</h4>
+            <p>Sınıfınıza veya koridora geri dönüşüm kutusu koyulması için öğretmeninizden izin isteyin.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🗂️</span>
+          <div>
+            <h4>Kağıt İsrafını Azalt</h4>
+            <p>Çift yüzlü yazdırın, boş kalan kağıtların arkasını kullanın. Hz. Peygamber her nimette israfı yasaklar.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🚶</span>
+          <div>
+            <h4>Yürüyerek veya Bisikletle Git</h4>
+            <p>Okul yakınsa yürümek hem sünnete uygun (sağlıklı yaşam) hem de karbon ayak izini sıfırlar.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">🧹</span>
+          <div>
+            <h4>Okul Bahçesini Temizle</h4>
+            <p>"Yoldan eziyet veren şeyleri kaldırmak sadakadır." Okul bahçenizdeki çöpleri toplamak ibadet sayılır.</p>
+          </div>
+        </div>
+        <div class="liste-madde">
+          <span class="ikon">💬</span>
+          <div>
+            <h4>Farkındalık Yarat</h4>
+            <p>Öğrendiklerini arkadaşlarınla paylaş. "Kim bir hayra delâlet ederse, o hayrı yapan gibi sevap alır." (Müslim)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIFIR ATIK SÜNNETİ -->
+<section class="arka-beyaz">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">♻️ Sıfır Atık</span>
+      <h2>Sıfır Atık Sünneti: Upcycling ve İslamî Tasarruf</h2>
+      <p>İleri dönüşüm kavramı aslında asırlardır İslam'ın özündedir</p>
+    </div>
+
+    <div class="karsilastirma">
+      <div class="karsilastirma-kart sunnet">
+        <h3>⭐ Sünnetin Öğrettikleri</h3>
+        <ul>
+          <li>Elbiseler eskiyene kadar kullanılır, yırtıldıkça dikilir</li>
+          <li>Yiyecekler israf edilmez, artan yemekler paylaşılır</li>
+          <li>Araç gereçler bozulunca tamir edilir, atılmaz</li>
+          <li>Hayvanlar doyurulur, kaynaklar korunur</li>
+          <li>"Allah israf edenleri sevmez" (Araf, 31)</li>
+          <li>Nimet verildiğinde şükür, değer bilmek esastır</li>
+        </ul>
+      </div>
+      <div class="karsilastirma-kart modern">
+        <h3>✅ Modern Sürdürülebilirlik</h3>
+        <ul>
+          <li>Upcycling: Eski eşyaları yeni ve değerli ürünlere dönüştürme</li>
+          <li>Gıda bankası: Artan yiyecekleri ihtiyaç sahiplerine ulaştırma</li>
+          <li>Tamir kültürü: "Tamir Kafeleri" ve sağ ol ekonomisi</li>
+          <li>Hayvan dostu ürünler, yaşam alanı koruma</li>
+          <li>Sıfır atık hareketi, döngüsel ekonomi</li>
+          <li>Minimalizm ve bilinçli tüketim</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: var(--arka-acik); border-radius:16px; padding:2rem; text-align:center;">
+      <h3 style="color:var(--koyu-yesil); font-size:1.2rem; margin-bottom:0.8rem;">🔄 Sonuç: Aynı Yolun İki Adı</h3>
+      <p style="color:var(--gri-metin); max-width:700px; margin:0 auto; font-size:0.95rem; line-height:1.9;">
+        Modern "Upcycling" hareketi, eski eşyalara yeni hayat verme felsefesi üzerine kuruludur. Sünnet ise bunu çok daha önce ve çok daha derin bir motivasyonla emretmiştir: Şükür. Her nimeti takdir etmek, her kaynağı değerlendirmek. İkisi de aynı hedefe; <strong>sürdürülebilir ve dengeli bir dünyaya</strong> ulaşmak için yola çıkmaktadır.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HAFTALIK GÖREVLER -->
+<section class="arka-acik">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">🎯 Haftalık Challenge</span>
+      <h2>Bu Hafta Ne Yapıyoruz?</h2>
+      <p>Her kartı tamamladığında tıkla — küçük adımlar büyük değişimler yaratır!</p>
+    </div>
+
+    <div class="kart-grid">
+      <div class="gorev-kart">
+        <div class="hafta">1. Hafta</div>
+        <h3>🚰 Plastik Şişeyi Veda Et</h3>
+        <p>Bu hafta plastik şişe kullanmıyoruz. Okula ve her gittiğin yere <strong>mataran</strong> ile gidiyorsun.</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">2. Hafta</div>
+        <h3>🍞 Artan Yemekleri Paylaş</h3>
+        <p>Bugün artan yemekleri sokak hayvanlarıyla paylaşıyoruz. "Susayan bir hayvanı sulayan cennete girer."</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">3. Hafta</div>
+        <h3>🌱 Bir Fidan Dik</h3>
+        <p>Bu hafta saksıda ya da bahçede bir tohum ekiyoruz. Kıyamet kopsa bile fidan dikilir!</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">4. Hafta</div>
+        <h3>🛍️ Bez Torba Haftası</h3>
+        <p>Tüm alışverişlerinde plastik torba yerine bez torba kullan. Torban yoksa marketten al veya kendini dik!</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">5. Hafta</div>
+        <h3>🧹 Mahalle Temizliği</h3>
+        <p>Sokaktan gördüğün çöpü kaldır. "Yoldan eziyet veren şeyleri kaldırmak sadakadır." Harekete geç!</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">6. Hafta</div>
+        <h3>💡 Enerji Dedektifi</h3>
+        <p>Bir gün boyunca evindeki gereksiz ışık ve bekleme modundaki cihazları kapat. Faturada farkı gör!</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">7. Hafta</div>
+        <h3>♻️ Eski Eşyayı Dönüştür</h3>
+        <p>Evde artık kullanmadığın bir eşyayı upcycle et! Kavanoz + ipe = mumluk; eski gömlek = alışveriş çantası...</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+
+      <div class="gorev-kart">
+        <div class="hafta">8. Hafta</div>
+        <h3>📢 Farkındalık Yayıcısı</h3>
+        <p>Öğrendiklerinden birini bu hafta 5 kişiyle paylaş. "Kim bir hayra delâlet ederse..." Zinciri kır!</p>
+        <span class="badge">🎯 Katıl!</span>
+      </div>
+    </div>
+
+    <p style="text-align:center; color:var(--gri-metin); font-size:0.9rem; margin-top:1.5rem;">
+      💡 <strong>İpucu:</strong> Göreve tıklayarak tamamlandı olarak işaretleyebilirsin!
+    </p>
+  </div>
+</section>
+
+<!-- KAYNAK KISMI -->
+<section class="arka-beyaz">
+  <div class="konteyner">
+    <div style="background: linear-gradient(135deg, var(--koyu-yesil), var(--yesil)); border-radius:20px; padding:3rem; color:white; text-align:center;">
+      <h2 style="color:var(--altin); font-size:1.5rem; margin-bottom:1rem;">📊 Rakamlar Bize Ne Anlatıyor?</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+        <div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--altin);">%40</div>
+          <div style="color:rgba(255,255,255,0.85); font-size:0.9rem;">Dünya nüfusu su kıtlığı yaşıyor</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--altin);">10M</div>
+          <div style="color:rgba(255,255,255,0.85); font-size:0.9rem;">Hektar orman her yıl yok oluyor</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--altin);">8M</div>
+          <div style="color:rgba(255,255,255,0.85); font-size:0.9rem;">Ton plastik okyanuslara karışıyor</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem; font-weight:800; color:var(--altin);">1°C</div>
+          <div style="color:rgba(255,255,255,0.85); font-size:0.9rem;">Sanayi devriminden beri ısınma</div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,0.8); margin-top:1.5rem; font-size:0.95rem; max-width:600px; margin-left:auto; margin-right:auto;">
+        Bu rakamlar bizi ümitsizliğe değil, harekete davet ediyor. "Kıyamet kopuyor olsa bile fidanı dikin."
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-icerik">
+    <div class="footer-bolum">
+      <h4>🌿 Sünnetin İzinde Çevre</h4>
+      <p>Sosyalfest 2025 kapsamında hazırlanan bu proje; İslami çevre ahlakını günümüzün sürdürülebilirlik hedefleriyle buluşturmayı amaçlamaktadır.</p>
+    </div>
+    <div class="footer-bolum">
+      <h4>Sayfalar</h4>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hadisler.html">Hadisler Işığında Çevre</a>
+      <a href="pratik-rehber.html">Pratik Rehber</a>
+      <a href="medya.html">Medya & Projeler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+    <div class="footer-bolum">
+      <h4>İletişim</h4>
+      <p>📸 Instagram: @sunnetinizinde</p>
+      <p>✉️ <a href="iletisim.html">İletişim Formu</a></p>
+    </div>
+  </div>
+  <div class="footer-alt">
+    <p>© 2025 Sünnetin İzinde Çevre Projesi · Sosyalfest · Danışman: Emrah Hoca</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

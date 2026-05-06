@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim | Sünnetin İzinde Çevre</title>
+  <meta name="description" content="Bize ulaşın, sorularınızı sorun, projeye katkıda bulunun.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    .iletisim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media(max-width: 768px) {
+      .iletisim-grid { grid-template-columns: 1fr; }
+    }
+    .iletisim-bilgi-kart {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: var(--arka-acik);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--altin);
+    }
+    .iletisim-bilgi-kart .ikon {
+      font-size: 1.8rem;
+      min-width: 40px;
+    }
+    .iletisim-bilgi-kart h4 {
+      color: var(--koyu-yesil);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    .iletisim-bilgi-kart p {
+      font-size: 0.88rem;
+      color: var(--gri-metin);
+    }
+    .sss-madde {
+      background: var(--beyaz);
+      border-radius: 12px;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(45,106,79,0.1);
+      overflow: hidden;
+    }
+    .sss-soru {
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--koyu-yesil);
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .sss-soru:hover { background: var(--arka-acik); }
+    .sss-cevap {
+      display: none;
+      padding: 0 1.5rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--gri-metin);
+      line-height: 1.8;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1rem;
+    }
+    .sss-cevap.acik { display: block; }
+    .sss-ok { transition: transform 0.3s; font-size: 0.9rem; }
+    .sss-ok.donmus { transform: rotate(180deg); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🌿</span>
+    <span>Sünnetin İzinde Çevre<small>Sosyalfest 2025 Projesi</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hadisler.html">Hadisler</a></li>
+    <li><a href="pratik-rehber.html">Pratik Rehber</a></li>
+    <li><a href="medya.html">Medya</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="iletisim.html">İletişim</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="sayfa-baslik">
+  <h1>✉️ İletişim & Destek</h1>
+  <p>Sorularınız, önerileriniz veya projeye katkınız için buradayız</p>
+</div>
+
+<!-- İLETİŞİM BÖLÜMÜ -->
+<section class="arka-acik">
+  <div class="konteyner">
+    <div class="iletisim-grid">
+      <!-- SOL TARAF: BİLGİLER -->
+      <div>
+        <h2 style="color:var(--koyu-yesil); font-size:1.4rem; margin-bottom:1.5rem;">Bize Ulaşın</h2>
+
+        <div class="iletisim-bilgi-kart">
+          <span class="ikon">📸</span>
+          <div>
+            <h4>Instagram</h4>
+            <p>@sunnetinizinde — Güncel paylaşımlar ve sorular için</p>
+          </div>
+        </div>
+
+        <div class="iletisim-bilgi-kart">
+          <span class="ikon">🏫</span>
+          <div>
+            <h4>Proje</h4>
+            <p>Sosyalfest 2025 Kapsamında Hazırlanmıştır</p>
+          </div>
+        </div>
+
+        <div class="iletisim-bilgi-kart">
+          <span class="ikon">👨‍🏫</span>
+          <div>
+            <h4>Danışman</h4>
+            <p>Emrah Hoca — Proje Danışmanı</p>
+          </div>
+        </div>
+
+        <div class="iletisim-bilgi-kart">
+          <span class="ikon">⏰</span>
+          <div>
+            <h4>Yanıt Süresi</h4>
+            <p>Mesajlarınıza genellikle 1-2 gün içinde dönüş yapıyoruz</p>
+          </div>
+        </div>
+
+        <!-- SOSYAL MEDYA -->
+        <div style="margin-top:2rem;">
+          <h3 style="color:var(--koyu-yesil); font-size:1rem; margin-bottom:1rem;">📲 Sosyal Medyamız</h3>
+          <div style="display:flex; flex-direction:column; gap:0.7rem;">
+            <a href="#" class="sosyal-btn instagram" style="justify-content:center;">📸 Instagram — @sunnetinizinde</a>
+            <a href="#" class="sosyal-btn youtube" style="justify-content:center;">▶️ YouTube Kanalımız</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAĞ TARAF: FORM -->
+      <div>
+        <div class="form-alani">
+          <h2 style="color:var(--koyu-yesil); font-size:1.3rem; margin-bottom:0.5rem;">Mesaj Gönder</h2>
+          <p style="color:var(--gri-metin); font-size:0.9rem; margin-bottom:2rem;">Öğretmenler, öğrenciler ve jüri üyeleri için açık iletişim kanalı</p>
+
+          <form id="iletisimFormu">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-grup">
+                <label>Ad *</label>
+                <input type="text" placeholder="Adınız" required>
+              </div>
+              <div class="form-grup">
+                <label>Soyad *</label>
+                <input type="text" placeholder="Soyadınız" required>
+              </div>
+            </div>
+
+            <div class="form-grup">
+              <label>E-posta *</label>
+              <input type="email" placeholder="e-posta@ornek.com" required>
+            </div>
+
+            <div class="form-grup">
+              <label>Konu</label>
+              <select>
+                <option value="">— Konu seçin —</option>
+                <option>Projeye İlişkin Soru</option>
+                <option>Jüri Soruları</option>
+                <option>İş Birliği Teklifi</option>
+                <option>Materyal İsteği</option>
+                <option>Diğer</option>
+              </select>
+            </div>
+
+            <div class="form-grup">
+              <label>Mesajınız *</label>
+              <textarea placeholder="Mesajınızı buraya yazın..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-gonder-btn">✉️ Mesaj Gönder</button>
+          </form>
+
+          <div class="mesaj-kutu" id="formMesaj">
+            ✅ Mesajınız başarıyla iletildi! En kısa sürede dönüş yapacağız.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SSS BÖLÜMÜ -->
+<section class="arka-beyaz">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">❓ Sık Sorulan Sorular</span>
+      <h2>Merak Ettikleriniz</h2>
+    </div>
+
+    <div style="max-width:750px; margin:0 auto;">
+      <div class="sss-madde">
+        <div class="sss-soru" onclick="sssTikla(this)">
+          Bu projeyi başka okullar da kullanabilir mi?
+          <span class="sss-ok">▼</span>
+        </div>
+        <div class="sss-cevap">
+          Evet! Hazırladığımız materyaller (PDF afiş, infografik, sunum) tamamen ücretsiz olarak indirilebilir. Tek ricamız; kullandığınızda kaynak göstermeniz.
+        </div>
+      </div>
+
+      <div class="sss-madde">
+        <div class="sss-soru" onclick="sssTikla(this)">
+          Hangi kaynakları kullandınız?
+          <span class="sss-ok">▼</span>
+        </div>
+        <div class="sss-cevap">
+          Hadisler için Buhârî, Müslim, Müsned-i Ahmed ve İbn Mâce gibi temel hadis kaynaklarını kullandık. Çevre verileri için BM raporları, WWF araştırmaları ve IPCC raporlarından yararlandık. Tam kaynakça <a href="hakkimizda.html" style="color:var(--yesil);">Hakkımızda</a> sayfasındadır.
+        </div>
+      </div>
+
+      <div class="sss-madde">
+        <div class="sss-soru" onclick="sssTikla(this)">
+          Videonuzu nasıl hazırladınız?
+          <span class="sss-ok">▼</span>
+        </div>
+        <div class="sss-cevap">
+          CapCut video düzenleme uygulamasını kullandık. Seslendirmeler ekip üyelerimiz tarafından gerçekleştirildi. Görsel materyaller için Canva'dan yararlandık.
+        </div>
+      </div>
+
+      <div class="sss-madde">
+        <div class="sss-soru" onclick="sssTikla(this)">
+          Projeye nasıl katkıda bulunabilirim?
+          <span class="sss-ok">▼</span>
+        </div>
+        <div class="sss-cevap">
+          En büyük katkı; bu siteyi çevrenizdeki insanlarla paylaşmak! Ayrıca sosyal medyamızı takip edip gönderilerimizi paylaşabilir, haftalık görevleri yapıp bizi etiketleyebilirsiniz.
+        </div>
+      </div>
+
+      <div class="sss-madde">
+        <div class="sss-soru" onclick="sssTikla(this)">
+          Instagram hesabınız var mı?
+          <span class="sss-ok">▼</span>
+        </div>
+        <div class="sss-cevap">
+          Evet! @sunnetinizinde hesabını takip edebilirsiniz. Hadis paylaşımları, çevre haberleri ve haftalık görevlerimiz orada yayınlanmaktadır.
+        </div>
+      </div>
+
+      <div class="sss-madde">
+        <div class="sss-soru" onclick="sssTikla(this)">
+          Projeyi sınıfımda anlatabilir miyim?
+          <span class="sss-ok">▼</span>
+        </div>
+        <div class="sss-cevap">
+          Tabii ki! Medya sayfamızdaki PowerPoint sunumunu indirip kullanabilirsiniz. Ayrıca afişleri indirip sınıfınıza asabilirsiniz. Eğitim amaçlı kullanım serbesttir.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTEK ÇAĞRISI -->
+<section style="background: linear-gradient(135deg, var(--koyu-yesil), var(--yesil)); padding:4rem 2rem; text-align:center;">
+  <div class="konteyner">
+    <h2 style="color:var(--altin); font-size:1.8rem; margin-bottom:1rem;">Birlikte Daha Güçlüyüz</h2>
+    <p style="color:rgba(255,255,255,0.9); max-width:600px; margin:0 auto 2rem; line-height:1.9;">
+      Bu projeyi paylaştıkça, anlattıkça, uyguladıkça gerçek bir fark yaratırsınız. Sünnetin çevre mesajını yaymak için bize katılın.
+    </p>
+    <div class="hero-butonlar" style="justify-content:center;">
+      <a href="hadisler.html" class="btn-birincil">📖 Hadisleri Keşfet</a>
+      <a href="pratik-rehber.html" class="btn-ikincil">🎯 Görevlere Katıl</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-icerik">
+    <div class="footer-bolum">
+      <h4>🌿 Sünnetin İzinde Çevre</h4>
+      <p>Sosyalfest 2025 kapsamında hazırlanan bu proje; İslami çevre ahlakını günümüzün sürdürülebilirlik hedefleriyle buluşturmayı amaçlamaktadır.</p>
+    </div>
+    <div class="footer-bolum">
+      <h4>Sayfalar</h4>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hadisler.html">Hadisler Işığında Çevre</a>
+      <a href="pratik-rehber.html">Pratik Rehber</a>
+      <a href="medya.html">Medya & Projeler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+    <div class="footer-bolum">
+      <h4>İletişim</h4>
+      <p>📸 Instagram: @sunnetinizinde</p>
+      <p>✉️ İletişim Formu (bu sayfa)</p>
+    </div>
+  </div>
+  <div class="footer-alt">
+    <p>© 2025 Sünnetin İzinde Çevre Projesi · Sosyalfest · Danışman: Emrah Hoca</p>
+    <p style="margin-top:0.4rem; font-size:0.8rem;">🌍 Doğayı Korumak İnancımızın Gereğidir</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function sssTikla(el) {
+  const cevap = el.nextElementSibling;
+  const ok = el.querySelector('.sss-ok');
+  const acikMi = cevap.classList.contains('acik');
+
+  // Tüm açıkları kapat
+  document.querySelectorAll('.sss-cevap').forEach(c => c.classList.remove('acik'));
+  document.querySelectorAll('.sss-ok').forEach(o => o.classList.remove('donmus'));
+
+  // Tıklananı aç (eğer kapalıysa)
+  if (!acikMi) {
+    cevap.classList.add('acik');
+    ok.classList.add('donmus');
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medya & Projeler | Sünnetin İzinde Çevre</title>
+  <meta name="description" content="Videolar, Instagram gönderileri ve indirilebilir materyaller.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    .sekme-sistem {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      overflow-x: auto;
+    }
+    .sekme-btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      background: none;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gri-metin);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.3s;
+    }
+    .sekme-btn.aktif, .sekme-btn:hover {
+      color: var(--yesil);
+      border-bottom-color: var(--yesil);
+    }
+    .sekme-icerik { display: none; }
+    .sekme-icerik.aktif { display: block; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .video-kart {
+      background: var(--beyaz);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    .video-kart:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+    .video-kart .video-baslik-bolum {
+      padding: 1.2rem;
+    }
+    .video-kart h3 { font-size:1rem; color:var(--koyu-yesil); margin-bottom:0.4rem; }
+    .video-kart p { font-size:0.85rem; color:var(--gri-metin); }
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .instagram-post {
+      background: linear-gradient(135deg, var(--yesil), var(--acik-yesil));
+      border-radius: 12px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .instagram-post:hover { transform: scale(1.02); }
+    .instagram-post .post-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .instagram-post p { font-size: 0.85rem; font-weight: 600; }
+    .instagram-post small { font-size: 0.75rem; opacity: 0.8; margin-top: 0.3rem; }
+
+    .indirme-listesi { display: flex; flex-direction: column; gap: 1rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🌿</span>
+    <span>Sünnetin İzinde Çevre<small>Sosyalfest 2025 Projesi</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hadisler.html">Hadisler</a></li>
+    <li><a href="pratik-rehber.html">Pratik Rehber</a></li>
+    <li><a href="medya.html">Medya</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="iletisim.html">İletişim</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="sayfa-baslik">
+  <h1>🎬 Medya & Projelerimiz</h1>
+  <p>Videolarımız, sosyal medyamız ve indirilebilir materyallerimiz</p>
+</div>
+
+<section>
+  <div class="konteyner">
+
+    <!-- SEKME SİSTEMİ -->
+    <div class="sekme-sistem">
+      <button class="sekme-btn aktif" onclick="sekmeAc('videolar', this)">🎬 Videolar</button>
+      <button class="sekme-btn" onclick="sekmeAc('instagram', this)">📸 Instagram</button>
+      <button class="sekme-btn" onclick="sekmeAc('indirmeler', this)">📥 İndirilebilir Materyaller</button>
+    </div>
+
+    <!-- VİDEOLAR -->
+    <div class="sekme-icerik aktif" id="sekme-videolar">
+      <div class="bolum-baslik" style="text-align:left; margin-bottom:2rem;">
+        <h2>Video Galerisi</h2>
+        <p>Projemiz kapsamında hazırladığımız videolar. YouTube linkinizi ekledikten sonra otomatik görünür.</p>
+      </div>
+
+      <!-- Tanıtım Videosu - Ana -->
+      <div style="margin-bottom:3rem;">
+        <h3 style="color:var(--koyu-yesil); margin-bottom:1rem; font-size:1.1rem;">🌟 Ana Tanıtım Filmi</h3>
+        <!-- BURAYA YouTube iframe linkinizi ekleyin -->
+        <!-- Örnek: <iframe src="https://www.youtube.com/embed/VIDEO_ID" ...></iframe> -->
+        <div class="video-placeholder" style="min-height:380px; border-radius:16px;">
+          <div class="oynat">▶</div>
+          <p style="font-size:1rem; font-weight:600;">Tanıtım Filmimiz</p>
+          <p>YouTube linkinizi buraya eklemek için aşağıdaki kodu düzenleyin:</p>
+          <code style="background:rgba(0,0,0,0.3); padding:0.5rem 1rem; border-radius:8px; font-size:0.8rem; margin-top:0.5rem; display:block; max-width:500px;">
+            &lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"&gt;&lt;/iframe&gt;
+          </code>
+        </div>
+      </div>
+
+      <!-- Diğer Videolar -->
+      <h3 style="color:var(--koyu-yesil); margin-bottom:1.5rem; font-size:1.1rem;">📹 Tüm Videolar</h3>
+      <div class="video-grid">
+        <div class="video-kart">
+          <div class="video-placeholder" style="min-height:180px; border-radius:0;">
+            <div class="oynat" style="width:50px; height:50px; font-size:1.3rem;">▶</div>
+            <p style="font-size:0.8rem;">Video 1</p>
+          </div>
+          <div class="video-baslik-bolum">
+            <h3>💧 Su Tasarrufu ve Hadisler</h3>
+            <p>Abdest hadisinden küresel su krizine uzanan yolculuk.</p>
+          </div>
+        </div>
+
+        <div class="video-kart">
+          <div class="video-placeholder" style="min-height:180px; border-radius:0;">
+            <div class="oynat" style="width:50px; height:50px; font-size:1.3rem;">▶</div>
+            <p style="font-size:0.8rem;">Video 2</p>
+          </div>
+          <div class="video-baslik-bolum">
+            <h3>🌳 Kıyamette Bile Fidan Dik</h3>
+            <p>En ünlü çevre hadisinin modern yorumu.</p>
+          </div>
+        </div>
+
+        <div class="video-kart">
+          <div class="video-placeholder" style="min-height:180px; border-radius:0;">
+            <div class="oynat" style="width:50px; height:50px; font-size:1.3rem;">▶</div>
+            <p style="font-size:0.8rem;">Video 3</p>
+          </div>
+          <div class="video-baslik-bolum">
+            <h3>♻️ Sıfır Atık ve Sünnet</h3>
+            <p>İsraf yasağından modern upcycling hareketine.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--arka-acik); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:center;">
+        <p style="color:var(--gri-metin); font-size:0.9rem;">
+          📌 Videolarınızı YouTube'a yükledikten sonra video ID'lerini bu sayfaya ekleyebilirsiniz.
+          Her video için <code style="background:#e2e8f0; padding:0.2rem 0.5rem; border-radius:4px;">youtube.com/watch?v=<strong>VIDEO_ID</strong></code> kısmındaki ID'yi kullanın.
+        </p>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="sekme-icerik" id="sekme-instagram">
+      <div class="bolum-baslik" style="text-align:left; margin-bottom:2rem;">
+        <h2>📸 Instagram Akışı</h2>
+        <p>Hesabımızı takip et, paylaşımlarımızı kaçırma!</p>
+      </div>
+
+      <div style="text-align:center; margin-bottom:2rem;">
+        <a href="#" class="sosyal-btn instagram" style="display:inline-flex; font-size:1rem; padding:0.9rem 2rem;">
+          📸 @sunnetinizinde — Takip Et
+        </a>
+      </div>
+
+      <!-- Instagram Yerleştirme Notu -->
+      <div style="background:var(--arka-acik); border-radius:14px; padding:2rem; margin-bottom:2rem; border-left:4px solid #e1306c;">
+        <h4 style="color:#e1306c; margin-bottom:0.5rem;">📌 Instagram Akışı Eklemek İçin</h4>
+        <p style="color:var(--gri-metin); font-size:0.9rem; line-height:1.8;">
+          Instagram hesabınızı açtıktan sonra <strong>Behold Social</strong>, <strong>Elfsight</strong> veya <strong>SnapWidget</strong> gibi ücretsiz araçlarla akışınızı buraya gömebilirsiniz. Wix/Squarespace kullanıyorsanız otomatik Instagram bloku mevcuttur.
+        </p>
+      </div>
+
+      <!-- Örnek Gönderi Kartları -->
+      <h3 style="color:var(--koyu-yesil); margin-bottom:1.2rem;">Son Paylaşımlarımız (Örnek)</h3>
+      <div class="instagram-grid">
+        <div class="instagram-post">
+          <div class="post-emoji">💧</div>
+          <p>"Akar nehirde bile israf etme"</p>
+          <small>#sukoruma #sunnet</small>
+        </div>
+        <div class="instagram-post" style="background: linear-gradient(135deg, #1b4332, #40916c);">
+          <div class="post-emoji">🌳</div>
+          <p>Kıyamette bile fidan dik!</p>
+          <small>#agaclama #cevre</small>
+        </div>
+        <div class="instagram-post" style="background: linear-gradient(135deg, #6a0572, #ab47bc);">
+          <div class="post-emoji">♻️</div>
+          <p>Sıfır Atık = Sünnet</p>
+          <small>#sifirAtik #upcycling</small>
+        </div>
+        <div class="instagram-post" style="background: linear-gradient(135deg, #e63946, #c1121f);">
+          <div class="post-emoji">🐾</div>
+          <p>Hayvanları sevin, besleyin</p>
+          <small>#hayvansevgisi #biyoçeşitlilik</small>
+        </div>
+        <div class="instagram-post" style="background: linear-gradient(135deg, #e9c46a, #f4a261);">
+          <div class="post-emoji">🧹</div>
+          <p>Temizlik imandan gelir</p>
+          <small>#temizlik #cevreci</small>
+        </div>
+        <div class="instagram-post" style="background: linear-gradient(135deg, #023e8a, #0096c7);">
+          <div class="post-emoji">🌍</div>
+          <p>Sürdürülebilir gelecek</p>
+          <small>#sosyalfest2025</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- İNDİRMELER -->
+    <div class="sekme-icerik" id="sekme-indirmeler">
+      <div class="bolum-baslik" style="text-align:left; margin-bottom:2rem;">
+        <h2>📥 İndirilebilir Materyaller</h2>
+        <p>Panolara asın, arkadaşlarınızla paylaşın, derslerinizde kullanın.</p>
+      </div>
+
+      <div class="indirme-listesi">
+        <div class="indirme-kart">
+          <span class="dosya-ikon">📄</span>
+          <div class="dosya-bilgi">
+            <h3>Proje Raporu — Tam Metin</h3>
+            <p>Tüm araştırmamızı, hadisleri ve sürdürülebilirlik bağlantılarını içeren kapsamlı proje dökümanı. PDF · ~15 sayfa</p>
+          </div>
+          <a href="#" class="indir-btn" onclick="alert('PDF dosyanızı bu klasöre ekleyip linki güncelleyin!'); return false;">📥 İndir</a>
+        </div>
+
+        <div class="indirme-kart">
+          <span class="dosya-ikon">🖼️</span>
+          <div class="dosya-bilgi">
+            <h3>Pano Afişi — Su Tasarrufu</h3>
+            <p>Okulunuzun panosuna asabileceğiniz su hadisi afişi. Yüksek çözünürlük, A3 baskıya hazır. PDF</p>
+          </div>
+          <a href="#" class="indir-btn" onclick="alert('Afiş dosyanızı bu klasöre ekleyip linki güncelleyin!'); return false;">📥 İndir</a>
+        </div>
+
+        <div class="indirme-kart">
+          <span class="dosya-ikon">🖼️</span>
+          <div class="dosya-bilgi">
+            <h3>Pano Afişi — Fidan Hadisi</h3>
+            <p>"Kıyamet kopsa bile fidan dikin" hadisinin görselleştirildiği bilgi afişi. A3 baskıya hazır. PDF</p>
+          </div>
+          <a href="#" class="indir-btn" onclick="alert('Afiş dosyanızı bu klasöre ekleyip linki güncelleyin!'); return false;">📥 İndir</a>
+        </div>
+
+        <div class="indirme-kart">
+          <span class="dosya-ikon">📊</span>
+          <div class="dosya-bilgi">
+            <h3>İnfografik — Hadis & Çevre</h3>
+            <p>İslam'ın çevre ahlakını özetleyen görsel özet. Sosyal medyada paylaşmaya hazır. PNG · 1080x1080</p>
+          </div>
+          <a href="#" class="indir-btn" onclick="alert('Dosyanızı bu klasöre ekleyip linki güncelleyin!'); return false;">📥 İndir</a>
+        </div>
+
+        <div class="indirme-kart">
+          <span class="dosya-ikon">📋</span>
+          <div class="dosya-bilgi">
+            <h3>Haftalık Görev Listesi</h3>
+            <p>8 haftalık çevre görev listesinin basılabilir versiyonu. Sınıfta kullanmaya hazır. PDF · 1 sayfa</p>
+          </div>
+          <a href="#" class="indir-btn" onclick="alert('Dosyanızı bu klasöre ekleyip linki güncelleyin!'); return false;">📥 İndir</a>
+        </div>
+
+        <div class="indirme-kart">
+          <span class="dosya-ikon">🎨</span>
+          <div class="dosya-bilgi">
+            <h3>Sunum Dosyası (PowerPoint)</h3>
+            <p>Projenizi sınıfta sunmak için hazır PowerPoint / Google Slides şablonu. PPTX · 20 slayt</p>
+          </div>
+          <a href="#" class="indir-btn" onclick="alert('Dosyanızı bu klasöre ekleyip linki güncelleyin!'); return false;">📥 İndir</a>
+        </div>
+      </div>
+
+      <div style="background:var(--arka-acik); border-radius:14px; padding:1.5rem; margin-top:2rem; border-left:4px solid var(--altin);">
+        <p style="color:var(--gri-metin); font-size:0.9rem;">
+          💡 <strong>Nasıl Eklenir?</strong> Dosyalarınızı bu web sitesiyle aynı klasöre koyun, ardından yukarıdaki <code style="background:#e2e8f0; padding:0.2rem 0.4rem; border-radius:4px;">href="#"</code> kısımlarını dosya adlarıyla güncelleyin. Örnek: <code style="background:#e2e8f0; padding:0.2rem 0.4rem; border-radius:4px;">href="proje-raporu.pdf"</code>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOSYAL MEDYA LINKLERI -->
+<section class="arka-acik">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">📲 Sosyal Medya</span>
+      <h2>Bizi Takip Edin</h2>
+      <p>Güncel içerikler, yeni hadisler ve çevre haberleri için sosyal medyamızı takip edin</p>
+    </div>
+    <div class="sosyal-medya">
+      <a href="#" class="sosyal-btn instagram">📸 Instagram</a>
+      <a href="#" class="sosyal-btn youtube">▶️ YouTube</a>
+      <a href="#" class="sosyal-btn twitter">🐦 Twitter / X</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-icerik">
+    <div class="footer-bolum">
+      <h4>🌿 Sünnetin İzinde Çevre</h4>
+      <p>Sosyalfest 2025 kapsamında hazırlanan bu proje; İslami çevre ahlakını günümüzün sürdürülebilirlik hedefleriyle buluşturmayı amaçlamaktadır.</p>
+    </div>
+    <div class="footer-bolum">
+      <h4>Sayfalar</h4>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hadisler.html">Hadisler Işığında Çevre</a>
+      <a href="pratik-rehber.html">Pratik Rehber</a>
+      <a href="medya.html">Medya & Projeler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+    <div class="footer-bolum">
+      <h4>İletişim</h4>
+      <p>📸 Instagram: @sunnetinizinde</p>
+      <p>✉️ <a href="iletisim.html">İletişim Formu</a></p>
+    </div>
+  </div>
+  <div class="footer-alt">
+    <p>© 2025 Sünnetin İzinde Çevre Projesi · Sosyalfest · Danışman: Emrah Hoca</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function sekmeAc(sekmeId, btn) {
+  document.querySelectorAll('.sekme-icerik').forEach(el => el.classList.remove('aktif'));
+  document.querySelectorAll('.sekme-btn').forEach(el => el.classList.remove('aktif'));
+  document.getElementById('sekme-' + sekmeId).classList.add('aktif');
+  btn.classList.add('aktif');
+}
+</script>
+</body>
+</html>
