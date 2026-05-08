@@ -1,7 +1,8 @@
-// ===== ÇEVRE HADİSLERİ ARŞİVİ =====
-// Toplam 32 hadis · 6 kategori
+// ===== 40 HADİSTE ÇEVRE =====
+// Toplam 40 hadis · 6 kategori
 // Kaynaklar: Buhârî, Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce, Müsned-i Ahmed, Muvatta
 // Veriler İslam Ansiklopedisi (DİB) ve klasik hadis koleksiyonlarından derlenmiştir.
+// "40 Hadis" türü, İslâmî ilim geleneğinde Nevevî'den itibaren süregelen köklü bir derleme türüdür.
 
 const HADIS_ARSIVI = [
   // ===== SU (8) =====
@@ -334,6 +335,88 @@ const HADIS_ARSIVI = [
     kaynak: "Buhârî, Merdâ, 1 · Müslim, Münâfikîn, 58",
     derece: "Sahih (Muttefekun aleyh)",
     modern: "Doğanın insan ahlâkına aynalığı · Tabiat metaforları"
+  },
+
+  // ===== 40'A TAMAMLAYAN 8 EKLEME =====
+  {
+    id: 33, konu: "su", konuLabel: "💧 Su",
+    baslik: "Suyu Üç Yudumda İçmek",
+    arapca: "كَانَ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَتَنَفَّسُ فِي الشَّرَابِ ثَلَاثًا",
+    turkce: "Peygamber Efendimiz su içerken üç defa nefes alır (üç yudumda içer) idi.",
+    ravi: "Enes b. Mâlik (r.a.)",
+    kaynak: "Buhârî, Eşribe, 26 · Müslim, Eşribe, 121",
+    derece: "Sahih (Muttefekun aleyh)",
+    modern: "Bilinçli tüketim · Yavaş ve şükürle içme · Hızlı tüketim eleştirisi"
+  },
+  {
+    id: 34, konu: "su", konuLabel: "💧 Su",
+    baslik: "Yağmur Duası: Hayvanları da Sula",
+    arapca: "اللَّهُمَّ اسْقِ عِبَادَكَ وَبَهَائِمَكَ، وَانْشُرْ رَحْمَتَكَ، وَأَحْيِ بَلَدَكَ الْمَيِّتَ",
+    turkce: "Allah'ım, kullarını ve hayvanlarını sula; rahmetini yay ve ölü beldeni dirilt.",
+    ravi: "Hz. Peygamber'in (s.a.v.) yağmur duası — Mâlik nakli",
+    kaynak: "Muvatta, İstiskâ, 2 · Ebû Dâvûd, İstiskâ, 2",
+    derece: "Sahih",
+    modern: "Suya erişim hakkı tüm canlılara · Kuraklık ve iklim değişikliği duası"
+  },
+  {
+    id: 35, konu: "agac", konuLabel: "🌳 Ağaç & Fidan",
+    baslik: "Yedi Şey Ölümden Sonra Sevap Getirir",
+    arapca: "سَبْعٌ يَجْرِي لِلْعَبْدِ أَجْرُهُنَّ وَهُوَ فِي قَبْرِهِ بَعْدَ مَوْتِهِ: مَنْ عَلَّمَ عِلْمًا، أَوْ كَرَى نَهْرًا، أَوْ حَفَرَ بِئْرًا، أَوْ غَرَسَ نَخْلًا...",
+    turkce: "Yedi şey vardır ki, kişi öldükten sonra kabrinde de sevabı kendisine ulaşmaya devam eder: İlim öğretmek, nehir açmak, kuyu kazmak, hurma ağacı dikmek, mescit yapmak, Mushaf bağışlamak ve hayırlı evlat bırakmak.",
+    ravi: "Enes b. Mâlik (r.a.)",
+    kaynak: "Bezzâr, el-Müsned · Beyhakî, Şuabu'l-Îmân",
+    derece: "Hasen (li-gayrihî)",
+    modern: "Sadaka-i câriye · Su altyapısı · Ağaçlandırma · Kuşaklararası emanet"
+  },
+  {
+    id: 36, konu: "hayvan", konuLabel: "🐾 Hayvan",
+    baslik: "Yumuşaklık (Rıfk) Süsler",
+    arapca: "إِنَّ الرِّفْقَ لَا يَكُونُ فِي شَيْءٍ إِلَّا زَانَهُ، وَلَا يُنْزَعُ مِنْ شَيْءٍ إِلَّا شَانَهُ",
+    turkce: "Yumuşaklık hangi şeyde bulunursa onu güzelleştirir; hangi şeyden çekilip alınırsa onu çirkinleştirir.",
+    ravi: "Hz. Âişe (r.a.)",
+    kaynak: "Müslim, Birr, 78",
+    derece: "Sahih",
+    modern: "Hayvanlara, doğaya, insanlara şefkat · Sürdürülebilir ahlâk"
+  },
+  {
+    id: 37, konu: "temizlik", konuLabel: "🧹 Temizlik",
+    baslik: "Cuma Günü Yıkanma",
+    arapca: "غُسْلُ يَوْمِ الْجُمُعَةِ وَاجِبٌ عَلَى كُلِّ مُحْتَلِمٍ",
+    turkce: "Cuma günü gusül abdesti almak, ergenlik çağındaki her müslüman için bir vecibedir.",
+    ravi: "Ebû Saîd el-Hudrî (r.a.)",
+    kaynak: "Buhârî, Cuma, 2 · Müslim, Cuma, 5",
+    derece: "Sahih (Muttefekun aleyh)",
+    modern: "Düzenli kişisel hijyen · Halk sağlığı · Toplumsal nezahat"
+  },
+  {
+    id: 38, konu: "temizlik", konuLabel: "🧹 Temizlik",
+    baslik: "Ağız Temizliği: Misvak",
+    arapca: "لَوْلَا أَنْ أَشُقَّ عَلَى أُمَّتِي لَأَمَرْتُهُمْ بِالسِّوَاكِ مَعَ كُلِّ وُضُوءٍ",
+    turkce: "Ümmetime zor gelmeyecek olsaydı, her abdestte misvak kullanmalarını emrederdim.",
+    ravi: "Ebû Hüreyre (r.a.)",
+    kaynak: "Buhârî, Cuma, 8 · Müslim, Tahâret, 42",
+    derece: "Sahih (Muttefekun aleyh)",
+    modern: "Doğal diş bakımı · Plastik diş fırçası alternatifi · Doğal ürün kullanımı"
+  },
+  {
+    id: 39, konu: "israf", konuLabel: "⚖️ İsraf",
+    baslik: "Ne İsraf Ne Cimrilik",
+    arapca: "وَالَّذِينَ إِذَا أَنْفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا",
+    turkce: "Onlar, harcadıklarında ne israf ederler ne de cimrilik; ikisinin arasında dengeli bir yol tutarlar.",
+    ravi: "—",
+    kaynak: "Kur'an-ı Kerim · Furkân Sûresi, 67. âyet",
+    derece: "Âyet (kesin nass)",
+    modern: "Sürdürülebilir tüketim · Dengeli yaşam · Minimalizm ile şükür arası denge"
+  },
+  {
+    id: 40, konu: "doga", konuLabel: "🌍 Doğa & Genel",
+    baslik: "Dünya Yeşil ve Güzeldir; Sınanıyorsunuz",
+    arapca: "إِنَّ الدُّنْيَا حُلْوَةٌ خَضِرَةٌ، وَإِنَّ اللَّهَ مُسْتَخْلِفُكُمْ فِيهَا، فَيَنْظُرُ كَيْفَ تَعْمَلُونَ",
+    turkce: "Şüphesiz dünya tatlı ve yeşildir. Allah sizi onda halife (sorumlu) kılmıştır; nasıl davranacağınıza bakacaktır.",
+    ravi: "Ebû Saîd el-Hudrî (r.a.)",
+    kaynak: "Müslim, Rikâk, 99 · Tirmizî, Fiten, 26",
+    derece: "Sahih",
+    modern: "Halifelik bilinci · Yeryüzünün emaneti · Antroposen sorumluluğu — proje bu hadisle taçlanır"
   }
 ];
 
