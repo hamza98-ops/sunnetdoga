@@ -5,7 +5,11 @@
   const konuFiltresi = document.getElementById('konuFiltresi');
   const sayac = document.getElementById('arsivSayac');
 
-  if (!grid || !window.HADIS_ARSIVI) return;
+  if (!grid) return;
+  if (typeof HADIS_ARSIVI === 'undefined' || typeof HADIS_KONULARI === 'undefined') {
+    grid.innerHTML = '<div class="sonuc-yok"><div class="sonuc-yok-emoji">⚠️</div><h3 style="color:var(--koyu-yesil); margin-bottom:0.5rem;">Veri yüklenemedi</h3><p>Lütfen sayfayı Ctrl+F5 ile yeniden yükleyin.</p></div>';
+    return;
+  }
 
   let aktifKonu = 'tumu';
   let aramaTerimi = '';
