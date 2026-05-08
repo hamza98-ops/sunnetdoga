@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hadis Arşivi | Sünnetin İzinde Çevre</title>
+  <meta name="description" content="32 çevre hadisinin Arapça orijinal metni, Türkçe meali, kaynağı ve modern bağlantıları — aranabilir ve filtrelenebilir arşiv.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    .arsiv-arac-cubugu {
+      background: var(--beyaz);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
+      position: sticky;
+      top: 78px;
+      z-index: 50;
+      border: 1px solid rgba(45,106,79,0.1);
+    }
+
+    .arama-kutusu {
+      width: 100%;
+      padding: 0.9rem 1.2rem 0.9rem 2.8rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 50px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 1rem center;
+      transition: all 0.3s;
+    }
+
+    .arama-kutusu:focus {
+      outline: none;
+      border-color: var(--yesil);
+      background-color: white;
+      box-shadow: 0 0 0 4px rgba(45,106,79,0.1);
+    }
+
+    .konu-filtresi {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .konu-cip {
+      background: #f0f7f4;
+      color: var(--gri-metin);
+      border: 2px solid transparent;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+
+    .konu-cip:hover {
+      background: rgba(45,106,79,0.08);
+    }
+
+    .konu-cip.aktif {
+      background: var(--yesil);
+      color: white;
+      border-color: var(--yesil);
+    }
+
+    .arsiv-istatistik {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: var(--gri-metin);
+    }
+
+    .arsiv-sayac {
+      background: var(--altin);
+      color: var(--koyu-yesil);
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+
+    .hadis-arsiv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .arsiv-kart {
+      background: var(--beyaz);
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      border-left: 5px solid var(--yesil);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .arsiv-kart:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .arsiv-kart[data-konu="su"]      { border-left-color: #0096c7; }
+    .arsiv-kart[data-konu="agac"]    { border-left-color: #52b788; }
+    .arsiv-kart[data-konu="hayvan"]  { border-left-color: #d4a017; }
+    .arsiv-kart[data-konu="temizlik"]{ border-left-color: #7209b7; }
+    .arsiv-kart[data-konu="israf"]   { border-left-color: #e63946; }
+    .arsiv-kart[data-konu="doga"]    { border-left-color: #1b4332; }
+
+    .arsiv-kart-ust {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .arsiv-kart-konu {
+      background: rgba(45,106,79,0.1);
+      color: var(--koyu-yesil);
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .arsiv-kart-id {
+      color: var(--gri-metin);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .arsiv-kart h3 {
+      color: var(--koyu-yesil);
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .arsiv-arapca {
+      font-family: 'Amiri', serif;
+      font-size: 1.1rem;
+      color: var(--koyu-yesil);
+      background: linear-gradient(135deg, rgba(212,160,23,0.05), rgba(82,183,136,0.05));
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.9;
+      border-right: 3px solid var(--altin);
+    }
+
+    .arsiv-turkce {
+      color: var(--gri-metin);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .arsiv-meta {
+      background: var(--arka-acik);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .arsiv-meta-satir {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .arsiv-meta-etiket {
+      color: var(--koyu-yesil);
+      font-weight: 700;
+      min-width: 70px;
+      flex-shrink: 0;
+    }
+
+    .arsiv-meta-deger {
+      color: var(--gri-metin);
+    }
+
+    .arsiv-modern {
+      background: linear-gradient(135deg, rgba(45,106,79,0.08), rgba(82,183,136,0.04));
+      border-left: 3px solid var(--acik-yesil);
+      padding: 0.7rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--gri-metin);
+    }
+
+    .arsiv-modern strong {
+      color: var(--koyu-yesil);
+    }
+
+    .sonuc-yok {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--gri-metin);
+    }
+
+    .sonuc-yok-emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .hadis-arsiv-grid {
+        grid-template-columns: 1fr;
+      }
+      .arsiv-arac-cubugu {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🌿</span>
+    <span>Sünnetin İzinde Çevre<small>Sosyalfest 2026 Projesi</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hadisler.html">Hadisler</a></li>
+    <li><a href="hadis-arsivi.html">Arşiv</a></li>
+    <li><a href="pratik-rehber.html">Pratik Rehber</a></li>
+    <li><a href="medya.html">Medya</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="iletisim.html">İletişim</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="sayfa-baslik">
+  <h1>📚 Hadis Arşivi</h1>
+  <p>32 çevre hadisi — Arapça orijinali, Türkçe meali, kaynağı ve modern bağlantısıyla</p>
+</div>
+
+<section class="arka-acik" style="padding: 2rem 1rem 4rem;">
+  <div class="konteyner">
+
+    <!-- ARAÇ ÇUBUĞU: Arama + Filtreler -->
+    <div class="arsiv-arac-cubugu">
+      <input type="search" id="aramaKutusu" class="arama-kutusu" placeholder="Hadis metninde, kaynağında veya konusunda ara..." aria-label="Hadis arama">
+
+      <div class="konu-filtresi" id="konuFiltresi" role="tablist" aria-label="Konu filtreleri">
+        <!-- JS dolduruyor -->
+      </div>
+
+      <div class="arsiv-istatistik">
+        <span>Gösterilen:</span>
+        <span class="arsiv-sayac" id="arsivSayac">0 / 0</span>
+        <span style="margin-left:auto; font-style:italic; font-size:0.78rem;">📖 Buhârî, Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce, Müsned-i Ahmed, Muvatta</span>
+      </div>
+    </div>
+
+    <!-- ARŞİV GRID -->
+    <div class="hadis-arsiv-grid" id="arsivGrid" aria-live="polite">
+      <!-- JS dolduruyor -->
+    </div>
+
+  </div>
+</section>
+
+<!-- KAYNAKÇA NOTU -->
+<section class="arka-beyaz" style="padding: 3rem 1rem;">
+  <div class="konteyner">
+    <div style="max-width:800px; margin:0 auto; background:var(--arka-acik); border-radius:14px; padding:1.8rem; border-left:4px solid var(--altin);">
+      <h3 style="color:var(--koyu-yesil); font-size:1.1rem; margin-bottom:0.8rem;">📚 Arşiv Hakkında</h3>
+      <p style="color:var(--gri-metin); font-size:0.92rem; line-height:1.85;">
+        Bu arşiv, Hz. Peygamber'in (s.a.v.) çevre, doğa, hayvanlara şefkat, su tasarrufu, temizlik ve israf konularındaki hadislerinden bir seçkidir. Arapça orijinal metinler ve kaynak referansları için <strong>Sahih-i Buhârî, Sahih-i Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce ve Müsned-i Ahmed</strong> gibi temel hadis kaynakları kullanılmıştır.
+      </p>
+      <p style="color:var(--gri-metin); font-size:0.88rem; line-height:1.8; margin-top:0.8rem;">
+        Türkçe çeviriler büyük ölçüde Diyanet İşleri Başkanlığı'nın "Hadislerle İslâm" eseri ve TDV İslam Ansiklopedisi'ndeki çevirilere dayanmaktadır. "Modern bağlantı" yorumları proje ekibimize aittir; akademik bir tefsir niteliği taşımaz, kaynak hadisin ışığında günümüz sürdürülebilirlik kavramları ile kurulmuş <em>tematik bağlantı</em> önerileridir.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-icerik">
+    <div class="footer-bolum">
+      <h4>🌿 Sünnetin İzinde Çevre</h4>
+      <p>Sosyalfest 2026 kapsamında hazırlanan bu proje; İslami çevre ahlakını günümüzün sürdürülebilirlik hedefleriyle buluşturmayı amaçlamaktadır.</p>
+    </div>
+    <div class="footer-bolum">
+      <h4>Sayfalar</h4>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hadisler.html">Hadisler Işığında Çevre</a>
+      <a href="hadis-arsivi.html">Hadis Arşivi</a>
+      <a href="pratik-rehber.html">Pratik Rehber</a>
+      <a href="medya.html">Medya & Projeler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+    <div class="footer-bolum">
+      <h4>İletişim</h4>
+      <p>📸 Instagram: @sunnetinizindecevre</p>
+      <p>✉️ <a href="iletisim.html">İletişim Formu</a></p>
+    </div>
+  </div>
+  <div class="footer-alt">
+    <p>© 2026 Sünnetin İzinde Çevre Projesi · Sosyalfest · Danışman: Emrah Hoca</p>
+  </div>
+</footer>
+
+<script src="hadisler-data.js"></script>
+<script src="script.js"></script>
+<script src="hadis-arsivi.js"></script>
+</body>
+</html>
