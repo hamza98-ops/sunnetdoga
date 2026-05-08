@@ -191,8 +191,70 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') tebrikKapat();
 });
 
+// ===== İLERLEME KAYDI (localStorage) =====
+const ILERLEME_KEY = 'sunnetdoga_ilerleme_v1';
+
+function ilerlemeOku() {
+  try {
+    return JSON.parse(localStorage.getItem(ILERLEME_KEY)) || { gorevler: {}, hadisler: {} };
+  } catch {
+    return { gorevler: {}, hadisler: {} };
+  }
+}
+
+function ilerlemeYaz(veri) {
+  try {
+    localStorage.setItem(ILERLEME_KEY, JSON.stringify(veri));
+  } catch {}
+}
+
+function ilerlemeIsaretle(tip, anahtar, durum) {
+  const veri = ilerlemeOku();
+  if (!veri[tip]) veri[tip] = {};
+  if (durum) veri[tip][anahtar] = new Date().toISOString();
+  else delete veri[tip][anahtar];
+  ilerlemeYaz(veri);
+  ilerlemeRozetiGuncelle();
+}
+
+// Tamamlanan görev sayısını gösteren rozeti güncelle
+function ilerlemeRozetiGuncelle() {
+  const veri = ilerlemeOku();
+  const gorevSayisi = Object.keys(veri.gorevler || {}).length;
+  const hadisSayisi = Object.keys(veri.hadisler || {}).length;
+  const toplam = gorevSayisi + hadisSayisi;
+
+  let rozet = document.getElementById('ilerlemeRozeti');
+  if (toplam === 0) {
+    if (rozet) rozet.remove();
+    return;
+  }
+
+  if (!rozet) {
+    rozet = document.createElement('div');
+    rozet.id = 'ilerlemeRozeti';
+    rozet.className = 'ilerleme-rozeti';
+    rozet.title = 'Tamamladığın görevler — bu rakam senin tarayıcında saklanır';
+    document.body.appendChild(rozet);
+  }
+  rozet.innerHTML = `🌿 <strong>${toplam}</strong> <span>görev tamamlandı</span>`;
+}
+
 // Haftalık görev kartları (pratik-rehber)
 document.querySelectorAll('.gorev-kart').forEach((kart, idx) => {
+  const anahtar = kart.dataset.gorev || ('hafta-' + (idx + 1));
+  kart.dataset.gorev = anahtar;
+
+  // Sayfa yüklendiğinde önceden tamamlanmış mı kontrol et
+  const veri = ilerlemeOku();
+  if (veri.gorevler && veri.gorevler[anahtar]) {
+    kart.classList.add('tamamlandi');
+    kart.style.borderLeftColor = '#2d6a4f';
+    kart.style.background = 'rgba(45, 106, 79, 0.05)';
+    const badge = kart.querySelector('.badge');
+    if (badge) badge.textContent = '✅ Tamamlandı!';
+  }
+
   kart.addEventListener('click', () => {
     const yeniDurum = !kart.classList.contains('tamamlandi');
     kart.classList.toggle('tamamlandi');
@@ -201,23 +263,38 @@ document.querySelectorAll('.gorev-kart').forEach((kart, idx) => {
       kart.style.borderLeftColor = '#2d6a4f';
       kart.style.background = 'rgba(45, 106, 79, 0.05)';
       if (badge) badge.textContent = '✅ Tamamlandı!';
+      ilerlemeIsaretle('gorevler', anahtar, true);
       tebrikGoster(idx);
     } else {
       kart.style.borderLeftColor = '';
       kart.style.background = '';
       if (badge) badge.textContent = '🎯 Katıl!';
+      ilerlemeIsaretle('gorevler', anahtar, false);
     }
   });
 });
 
 // Hadis görev kartları (hadisler.html)
 document.querySelectorAll('.hadis-gorev').forEach((kart, idx) => {
+  const anahtar = kart.dataset.hadis || ('hadis-' + idx);
   const btn = kart.querySelector('.hadis-tamamla-btn');
   if (!btn) return;
+
+  // Önceden tamamlanmış mı?
+  const veri = ilerlemeOku();
+  if (veri.hadisler && veri.hadisler[anahtar]) {
+    kart.classList.add('tamamlandi');
+    btn.textContent = '✅ Tamamlandı';
+  }
+
   btn.addEventListener('click', () => {
     if (kart.classList.contains('tamamlandi')) return;
     kart.classList.add('tamamlandi');
     btn.textContent = '✅ Tamamlandı';
+    ilerlemeIsaretle('hadisler', anahtar, true);
     tebrikGoster(idx);
   });
 });
+
+// Sayfa yüklendiğinde rozeti çiz
+ilerlemeRozetiGuncelle();
