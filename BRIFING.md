@@ -76,7 +76,7 @@ Her bölümde:
 
 - **Video Galerisi:** Tanıtım filmi alanı + 6 hadis videosu kartı (Su, Ağaç, Hayvan, Temizlik, Sıfır Atık, Bozgunculuk)
 - **Hadis Görselleri:** 6 görsel kart (sosyal medyada paylaşıma hazır format)
-- **Instagram Sekmesi:** [@sunnetinizindecevre](https://www.instagram.com/sunnetinizindecevre/) tanıtımı, örnek gönderiler
+- **Instagram Sekmesi:** [@sunnetin_izinde_doga_](https://www.instagram.com/sunnetin_izinde_doga_/) tanıtımı, örnek gönderiler
 - **İndirilebilir Materyaller (gerçek dosya bağlı):**
   - 📑 Broşür (QR kodlu PDF)
   - 🎨 Proje Sunumu (PPTX)
@@ -89,10 +89,10 @@ Her bölümde:
 
 | Üye | Rol |
 |-----|-----|
-| **İclal** | 📝 Proje Lideri & Metin Yazarı |
-| **Halime** | 🎬 Video Kurgu & Seslendirme |
-| **Fatma** | 🔍 Araştırmacı & Görsel Tasarım |
-| **Hazal Koç** | 🌐 Web Sitesi & Sosyal Medya Sorumlusu |
+| **Hazal Koç** | ⭐ Proje Lideri & Sosyal Medya Sorumlusu |
+| **İclal Yiğit** | ✍️ Metin Yazarı & Araştırmacı |
+| **Halime Özkan** | 🎬 Video Kurgu & Seslendirme |
+| **Fatma Özer** | 🎨 Görsel Tasarım & Araştırma |
 
 ---
 
@@ -100,8 +100,8 @@ Her bölümde:
 
 | Platform | Hesap | URL |
 |----------|-------|-----|
-| Instagram | @sunnetinizindecevre | https://www.instagram.com/sunnetinizindecevre/ |
-| YouTube | @sunnetinizindecevre | https://www.youtube.com/@sunnetinizindecevre |
+| Instagram | @sunnetin_izinde_doga_ | https://www.instagram.com/sunnetin_izinde_doga_/ |
+| YouTube | @sunnetinizindedoga | https://www.youtube.com/@sunnetinizindedoga |
 
 Twitter/X hesabı **bilinçli olarak kullanılmamaktadır**, sitede de yer almaz.
 

@@ -147,6 +147,8 @@ function tebrikGoster(index) {
         <h3 class="tebrik-baslik" id="tebrikBaslik"></h3>
         <p class="tebrik-mesaj" id="tebrikMesaj"></p>
         <div class="tebrik-ayet" id="tebrikAyet"></div>
+        <a href="https://www.instagram.com/sunnetin_izinde_doga_/" target="_blank" rel="noopener" class="paylas-cagrisi" style="margin-bottom:0.8rem;">📸 Instagram'da paylaş & bizi etiketle</a>
+        <br>
         <button class="tebrik-kapat-btn" id="tebrikKapatBtn">🌿 Devam Et</button>
       </div>
     `;
@@ -192,7 +194,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===== İLERLEME KAYDI (localStorage) =====
-const ILERLEME_KEY = 'sunnetdoga_ilerleme_v1';
+const ILERLEME_KEY = 'sunnetdoga_ilerleme_v2';
 
 function ilerlemeOku() {
   try {
@@ -205,14 +207,25 @@ function ilerlemeOku() {
 function ilerlemeYaz(veri) {
   try {
     localStorage.setItem(ILERLEME_KEY, JSON.stringify(veri));
-  } catch {}
+  } catch (e) {
+    if (e.name === 'QuotaExceededError') {
+      alert('Cihazınızdaki saklama alanı doldu. Daha küçük bir fotoğraf seçer misiniz?');
+    }
+  }
 }
 
-function ilerlemeIsaretle(tip, anahtar, durum) {
+function ilerlemeKaydet(tip, anahtar, kayit) {
   const veri = ilerlemeOku();
   if (!veri[tip]) veri[tip] = {};
-  if (durum) veri[tip][anahtar] = new Date().toISOString();
-  else delete veri[tip][anahtar];
+  if (kayit) {
+    veri[tip][anahtar] = {
+      tarih: new Date().toISOString(),
+      not: kayit.not || '',
+      foto: kayit.foto || null
+    };
+  } else {
+    delete veri[tip][anahtar];
+  }
   ilerlemeYaz(veri);
   ilerlemeRozetiGuncelle();
 }
@@ -240,37 +253,148 @@ function ilerlemeRozetiGuncelle() {
   rozet.innerHTML = `🌿 <strong>${toplam}</strong> <span>görev tamamlandı</span>`;
 }
 
+// ===== GÖREV ONAY FORMU =====
+// Bir görev kartına form'u dinamik olarak ekler ve davranışı bağlar
+function gorevFormuKur(kart, tip, anahtar, idx, butonMetni) {
+  // Form HTML'i
+  const form = document.createElement('div');
+  form.className = 'gorev-form';
+  form.innerHTML = `
+    <label for="not-${tip}-${idx}">📝 Bugün ne yaptın? Kısaca anlat:</label>
+    <textarea id="not-${tip}-${idx}" placeholder="Örn: Bugün dişlerimi fırçalarken musluğu kapattım, yaklaşık 5 litre su tasarruf ettim." maxlength="500"></textarea>
+
+    <label class="foto-yukle">
+      📸 İstersen bir fotoğraf ekle (opsiyonel — sadece senin cihazında saklanır)
+      <input type="file" accept="image/*" capture="environment">
+    </label>
+
+    <img class="foto-onizleme" style="display:none;" alt="Yüklenen fotoğraf önizlemesi">
+
+    <div class="gorev-form-butonlar">
+      <button type="button" class="gorev-form-onayla" disabled>✅ Onayla & Kaydet</button>
+      <button type="button" class="gorev-form-iptal">İptal</button>
+    </div>
+
+    <p style="font-size:0.78rem; color:var(--gri-metin); margin-top:0.8rem; text-align:center;">
+      💡 Fotoğraflar ve notlar yalnızca senin tarayıcında saklanır. Paylaşmak istersen Instagram'da bizi etiketleyebilirsin: <strong>@sunnetin_izinde_doga_</strong>
+    </p>
+  `;
+  kart.appendChild(form);
+
+  const textarea = form.querySelector('textarea');
+  const fileInput = form.querySelector('input[type="file"]');
+  const fotoOnizleme = form.querySelector('.foto-onizleme');
+  const onayBtn = form.querySelector('.gorev-form-onayla');
+  const iptalBtn = form.querySelector('.gorev-form-iptal');
+  let fotoVerisi = null;
+
+  // Onay butonu — not yazıldığında aktif
+  textarea.addEventListener('input', () => {
+    onayBtn.disabled = textarea.value.trim().length < 3;
+  });
+
+  // Fotoğraf yükleme (base64'e çevirip önizle)
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+    if (file.size > 1.5 * 1024 * 1024) {
+      alert('Fotoğraf çok büyük (max 1.5 MB). Daha küçük bir fotoğraf seçin.');
+      fileInput.value = '';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      fotoVerisi = e.target.result;
+      fotoOnizleme.src = fotoVerisi;
+      fotoOnizleme.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // İptal
+  iptalBtn.addEventListener('click', () => {
+    form.classList.remove('acik');
+    textarea.value = '';
+    fileInput.value = '';
+    fotoVerisi = null;
+    fotoOnizleme.style.display = 'none';
+    onayBtn.disabled = true;
+  });
+
+  // Onayla — kaydet ve tebrik göster
+  onayBtn.addEventListener('click', () => {
+    const not = textarea.value.trim();
+    if (not.length < 3) return;
+
+    ilerlemeKaydet(tip, anahtar, { not: not, foto: fotoVerisi });
+    form.classList.remove('acik');
+    kartiTamamlandiYap(kart, tip, anahtar, butonMetni);
+    tebrikGoster(idx);
+  });
+
+  return form;
+}
+
+// Tamamlanan kartı görselleştir (form yerine kayıtlı not ve fotoğraf göster)
+function kartiTamamlandiYap(kart, tip, anahtar, butonMetni) {
+  const veri = ilerlemeOku();
+  const kayit = veri[tip] && veri[tip][anahtar];
+  if (!kayit) return;
+
+  kart.classList.add('tamamlandi');
+
+  // Hadis görev kartı için
+  const hadisBtn = kart.querySelector('.hadis-tamamla-btn');
+  if (hadisBtn) hadisBtn.textContent = '✅ Tamamladın';
+
+  // Haftalık görev kartı için
+  const badge = kart.querySelector('.badge');
+  if (badge) {
+    badge.textContent = '✅ Tamamlandı!';
+    kart.style.borderLeftColor = '#2d6a4f';
+    kart.style.background = 'rgba(45, 106, 79, 0.05)';
+  }
+
+  // Önceden eklenmiş not yoksa ekle
+  if (!kart.querySelector('.tamamlanan-not')) {
+    const tarih = new Date(kayit.tarih || Date.now()).toLocaleDateString('tr-TR', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+    const notDiv = document.createElement('div');
+    notDiv.className = 'tamamlanan-not';
+    const fotoHTML = kayit.foto ? `<img src="${kayit.foto}" alt="Görev fotoğrafı">` : '';
+    notDiv.innerHTML = `
+      <div class="not-baslik">📝 Senin notun:</div>
+      <div>${(kayit.not || '').replace(/[<>]/g, '')}</div>
+      ${fotoHTML}
+      <div class="not-tarih">${tarih}</div>
+      <a href="https://www.instagram.com/sunnetin_izinde_doga_/" target="_blank" rel="noopener" class="paylas-cagrisi">📸 Instagram'da paylaş & bizi etiketle</a>
+    `;
+    kart.appendChild(notDiv);
+  }
+}
+
 // Haftalık görev kartları (pratik-rehber)
 document.querySelectorAll('.gorev-kart').forEach((kart, idx) => {
   const anahtar = kart.dataset.gorev || ('hafta-' + (idx + 1));
   kart.dataset.gorev = anahtar;
 
-  // Sayfa yüklendiğinde önceden tamamlanmış mı kontrol et
+  // Önceden tamamlanmış mı?
   const veri = ilerlemeOku();
   if (veri.gorevler && veri.gorevler[anahtar]) {
-    kart.classList.add('tamamlandi');
-    kart.style.borderLeftColor = '#2d6a4f';
-    kart.style.background = 'rgba(45, 106, 79, 0.05)';
-    const badge = kart.querySelector('.badge');
-    if (badge) badge.textContent = '✅ Tamamlandı!';
+    kartiTamamlandiYap(kart, 'gorevler', anahtar);
+    return; // Form'u kurma, zaten tamamlandı
   }
 
-  kart.addEventListener('click', () => {
-    const yeniDurum = !kart.classList.contains('tamamlandi');
-    kart.classList.toggle('tamamlandi');
-    const badge = kart.querySelector('.badge');
-    if (yeniDurum) {
-      kart.style.borderLeftColor = '#2d6a4f';
-      kart.style.background = 'rgba(45, 106, 79, 0.05)';
-      if (badge) badge.textContent = '✅ Tamamlandı!';
-      ilerlemeIsaretle('gorevler', anahtar, true);
-      tebrikGoster(idx);
-    } else {
-      kart.style.borderLeftColor = '';
-      kart.style.background = '';
-      if (badge) badge.textContent = '🎯 Katıl!';
-      ilerlemeIsaretle('gorevler', anahtar, false);
-    }
+  // Form'u oluştur (gizli)
+  const form = gorevFormuKur(kart, 'gorevler', anahtar, idx, 'badge');
+
+  // Karta tıklama: form'u aç
+  kart.addEventListener('click', (e) => {
+    // Form içine veya tamamlanmış karta tıklamayı yok say
+    if (e.target.closest('.gorev-form')) return;
+    if (kart.classList.contains('tamamlandi')) return;
+    form.classList.toggle('acik');
   });
 });
 
@@ -283,17 +407,26 @@ document.querySelectorAll('.hadis-gorev').forEach((kart, idx) => {
   // Önceden tamamlanmış mı?
   const veri = ilerlemeOku();
   if (veri.hadisler && veri.hadisler[anahtar]) {
-    kart.classList.add('tamamlandi');
-    btn.textContent = '✅ Tamamlandı';
+    kartiTamamlandiYap(kart, 'hadisler', anahtar);
+    return;
   }
+
+  // Form'u oluştur (gizli)
+  const form = gorevFormuKur(kart, 'hadisler', anahtar, idx, 'btn');
 
   btn.addEventListener('click', () => {
     if (kart.classList.contains('tamamlandi')) return;
-    kart.classList.add('tamamlandi');
-    btn.textContent = '✅ Tamamlandı';
-    ilerlemeIsaretle('hadisler', anahtar, true);
-    tebrikGoster(idx);
+    form.classList.toggle('acik');
+    btn.style.display = form.classList.contains('acik') ? 'none' : '';
   });
+
+  // İptal butonu basılınca dıştaki butonu tekrar göster
+  const iptalBtn = form.querySelector('.gorev-form-iptal');
+  if (iptalBtn) {
+    iptalBtn.addEventListener('click', () => {
+      btn.style.display = '';
+    });
+  }
 });
 
 // Sayfa yüklendiğinde rozeti çiz

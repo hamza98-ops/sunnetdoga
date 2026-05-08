@@ -5,8 +5,8 @@
 Hz. Peygamber'in (s.a.v.) **14 asır önce ortaya koyduğu çevre ahlakı** ile bugünün **sürdürülebilirlik kavramları** arasındaki köprüyü kuran Sosyalfest 2026 projesi.
 
 🌐 **Canlı:** [sunnetdoga.com.tr](https://sunnetdoga.com.tr)
-📸 **Instagram:** [@sunnetinizindecevre](https://www.instagram.com/sunnetinizindecevre/)
-▶️ **YouTube:** [@sunnetinizindecevre](https://www.youtube.com/@sunnetinizindecevre)
+📸 **Instagram:** [@sunnetin_izinde_doga_](https://www.instagram.com/sunnetin_izinde_doga_/)
+▶️ **YouTube:** [@sunnetinizindedoga](https://www.youtube.com/@sunnetinizindedoga)
 
 ---
 
@@ -98,10 +98,10 @@ Tam dipnot listesi için [hadisler.html](hadisler.html) sayfasının altındaki 
 
 | Üye | Rol |
 |-----|-----|
-| **İclal** | 📝 Proje Lideri & Metin Yazarı |
-| **Halime** | 🎬 Video Kurgu & Seslendirme |
-| **Fatma** | 🔍 Araştırmacı & Görsel Tasarım |
-| **Hazal Koç** | 🌐 Web Sitesi & Sosyal Medya Sorumlusu |
+| **Hazal Koç** | ⭐ Proje Lideri & Sosyal Medya Sorumlusu |
+| **İclal Yiğit** | ✍️ Metin Yazarı & Araştırmacı |
+| **Halime Özkan** | 🎬 Video Kurgu & Seslendirme |
+| **Fatma Özer** | 🎨 Görsel Tasarım & Araştırma |
 
 **Danışman:** Emrah Hoca
 
@@ -133,7 +133,7 @@ Hazırlanan tüm materyaller (PDF afiş, infografik, sunum) **eğitim amaçlı s
 
 ## 📬 İletişim
 
-- **Instagram:** [@sunnetinizindecevre](https://www.instagram.com/sunnetinizindecevre/)
+- **Instagram:** [@sunnetin_izinde_doga_](https://www.instagram.com/sunnetin_izinde_doga_/)
 - **İletişim formu:** [sunnetdoga.com.tr/iletisim.html](https://sunnetdoga.com.tr/iletisim.html)
 
 ---

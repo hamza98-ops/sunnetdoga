@@ -981,6 +981,185 @@ footer {
   pointer-events: none;
 }
 
+/* ===== GÖREV ONAY FORMU ===== */
+.gorev-form {
+  display: none;
+  margin-top: 1.2rem;
+  background: var(--beyaz);
+  border-radius: 14px;
+  padding: 1.4rem;
+  text-align: left;
+  border: 2px solid var(--acik-yesil);
+  animation: gorevFormAc 0.35s ease;
+}
+
+.gorev-form.acik {
+  display: block;
+}
+
+@keyframes gorevFormAc {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gorev-form label {
+  display: block;
+  color: var(--koyu-yesil);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.gorev-form textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.92rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+  color: var(--koyu-metin);
+  background: #f8fafc;
+}
+
+.gorev-form textarea:focus {
+  outline: none;
+  border-color: var(--yesil);
+  background: white;
+}
+
+.gorev-form .foto-yukle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--arka-acik);
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--gri-metin);
+  cursor: pointer;
+  border: 2px dashed transparent;
+  transition: border-color 0.2s;
+}
+
+.gorev-form .foto-yukle:hover {
+  border-color: var(--acik-yesil);
+}
+
+.gorev-form .foto-yukle input[type="file"] {
+  display: none;
+}
+
+.gorev-form .foto-onizleme {
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  max-height: 220px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.gorev-form-butonlar {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.gorev-form-onayla,
+.gorev-form-iptal {
+  border: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  flex: 1;
+  min-width: 120px;
+}
+
+.gorev-form-onayla {
+  background: var(--yesil);
+  color: white;
+}
+
+.gorev-form-onayla:hover:not(:disabled) {
+  background: var(--koyu-yesil);
+  transform: translateY(-1px);
+}
+
+.gorev-form-onayla:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+}
+
+.gorev-form-iptal {
+  background: #f1f5f9;
+  color: var(--gri-metin);
+}
+
+.gorev-form-iptal:hover {
+  background: #e2e8f0;
+}
+
+/* Tamamlanan görev içinde gösterilen not */
+.tamamlanan-not {
+  margin-top: 1rem;
+  background: rgba(45,106,79,0.06);
+  border-left: 3px solid var(--acik-yesil);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  text-align: left;
+  font-size: 0.88rem;
+  color: var(--gri-metin);
+}
+
+.tamamlanan-not .not-baslik {
+  color: var(--koyu-yesil);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  font-size: 0.82rem;
+}
+
+.tamamlanan-not .not-tarih {
+  color: var(--altin);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+
+.tamamlanan-not img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 0.6rem;
+  display: block;
+}
+
+.paylas-cagrisi {
+  margin-top: 0.8rem;
+  background: linear-gradient(135deg, #e1306c, #f77737);
+  color: white;
+  padding: 0.65rem 1rem;
+  border-radius: 50px;
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.25s;
+}
+
+.paylas-cagrisi:hover {
+  transform: translateY(-2px);
+}
+
 /* ===== TEBRİK MODAL ===== */
 .tebrik-overlay {
   position: fixed;
