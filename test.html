@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ön Test – Son Test | Sünnetin İzinde Çevre</title>
+  <meta name="description" content="Çevre Bilinci, Sünnet Farkındalığı ve Davranış Eğilimi Ölçeği — projeden önceki ve sonraki düzeyini ölç.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1b4332">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-icon">🌿</span>
+    <span>Sünnetin İzinde Çevre<small>Sosyalfest 2026 Projesi</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hadisler.html">Hadisler</a></li>
+    <li><a href="hadis-arsivi.html">40 Hadiste Çevre</a></li>
+    <li><a href="pratik-rehber.html">Pratik Rehber</a></li>
+    <li><a href="medya.html">Medya</a></li>
+    <li><a href="test.html">Test</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="iletisim.html">İletişim</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="sayfa-baslik">
+  <h1>📊 Ön Test – Son Test Ölçeği</h1>
+  <p>Çevre Bilinci, Sünnet Farkındalığı ve Davranış Eğilimi Ölçeği</p>
+</div>
+
+<!-- AÇIKLAMA -->
+<section class="arka-acik">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">📝 Nasıl Çalışır?</span>
+      <h2>Bu ölçek neden var?</h2>
+      <p>Projeye katılmadan <strong>önce</strong> ve <strong>sonra</strong> aynı testi doldurarak; çevreye bakış açının, sünnet farkındalığının ve günlük davranışlarının nasıl değiştiğini görebilirsin. Sonuçlar sadece kendi cihazında saklanır.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; max-width:900px; margin:0 auto;">
+      <button id="onTestBaslat" class="btn-birincil" style="padding:1.5rem; border:none; cursor:pointer; font-size:1rem;">
+        🚀 Ön Test'i Başlat
+        <span style="display:block; font-weight:400; font-size:0.8rem; margin-top:0.4rem; opacity:0.85;">Projeyi keşfetmeden önce dolduracağın test</span>
+      </button>
+      <button id="sonTestBaslat" class="btn-ikincil" style="padding:1.5rem; border:none; cursor:pointer; font-size:1rem;">
+        🎯 Son Test'i Başlat
+        <span style="display:block; font-weight:400; font-size:0.8rem; margin-top:0.4rem; opacity:0.85;">Projeyi tamamladıktan sonra dolduracağın test</span>
+      </button>
+    </div>
+
+    <div id="testDurum" class="test-durum">
+      <!-- JS doldurur: hangi test ne zaman yapılmış -->
+    </div>
+  </div>
+</section>
+
+<!-- TEST FORMU -->
+<section class="arka-beyaz" id="testBolum" style="display:none;">
+  <div class="konteyner">
+    <div class="test-baslik">
+      <h2 id="testBaslik">Ön Test</h2>
+      <p>Aşağıdaki ifadeleri 1–5 arasında değerlendir. <strong>Tüm soruları cevapladığında</strong> sonuçlarını görebilirsin.</p>
+      <div class="test-ilerleme">
+        <div class="test-ilerleme-cubuk" id="testIlerlemeCubuk"></div>
+      </div>
+      <p class="test-ilerleme-yazi"><span id="testCevaplanan">0</span> / <span id="testToplam">20</span> soru cevaplandı</p>
+    </div>
+
+    <form id="testForm" class="test-form">
+      <!-- A. ÇEVRE VE EMANET BİLİNCİ -->
+      <div class="test-grup">
+        <h3>A. Çevre ve Emanet Bilinci</h3>
+        <div class="test-soru" data-soru="1">
+          <p><span class="soru-no">1.</span> Çevreyi korumanın Allah'ın insana verdiği bir <strong>emanet</strong> olduğunu düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="2">
+          <p><span class="soru-no">2.</span> Doğaya zarar vermenin sadece toplumsal değil, <strong>dinî bir sorumluluk</strong> olduğunu düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="3">
+          <p><span class="soru-no">3.</span> Yere atılan bir çöpü kaldırmayı çevre temizliğinin yanında <strong>ahlâkî bir davranış</strong> olarak görüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="4">
+          <p><span class="soru-no">4.</span> İsrafın yalnızca ekonomik değil, aynı zamanda <strong>manevî bir problem</strong> olduğuna inanıyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="5">
+          <p><span class="soru-no">5.</span> Çevreye zarar vermenin <strong>kul hakkı ve emanet bilinciyle</strong> ilişkili olduğunu düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+      </div>
+
+      <!-- B. SÜNNET VE ÇEVRE İLİŞKİSİ -->
+      <div class="test-grup">
+        <h3>B. Sünnet ve Çevre İlişkisi</h3>
+        <div class="test-soru" data-soru="6">
+          <p><span class="soru-no">6.</span> Peygamber Efendimiz'in çevreye yönelik örnek davranışlarının günümüzde de uygulanabilir olduğunu düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="7">
+          <p><span class="soru-no">7.</span> Hadislerin çevre bilinci oluşturmada etkili olduğunu düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="8">
+          <p><span class="soru-no">8.</span> Çevreyi korumanın <strong>sünnet ahlâkının bir parçası</strong> olduğuna inanıyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="9">
+          <p><span class="soru-no">9.</span> Temizlik, merhamet ve israftan kaçınmanın çevreyle <strong>doğrudan ilişkili</strong> olduğunu düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="10">
+          <p><span class="soru-no">10.</span> Peygamber Efendimiz'in çevreyle ilgili öğretilerini günlük hayatta daha fazla uygulamam gerektiğini düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+      </div>
+
+      <!-- C. DAVRANIŞ EĞİLİMİ -->
+      <div class="test-grup">
+        <h3>C. Davranış Eğilimi</h3>
+        <div class="test-soru" data-soru="11">
+          <p><span class="soru-no">11.</span> Günlük hayatımda <strong>su israfını azaltmaya</strong> dikkat ederim.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="12">
+          <p><span class="soru-no">12.</span> Çevreyi temiz tutma konusunda çevremdekilere <strong>örnek olmaya</strong> çalışırım.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="13">
+          <p><span class="soru-no">13.</span> <strong>Gereksiz tüketimden</strong> kaçınmaya dikkat ederim.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="14">
+          <p><span class="soru-no">14.</span> Hayvanlara ve canlılara karşı <strong>merhametli davranmaya</strong> özen gösteririm.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="15">
+          <p><span class="soru-no">15.</span> Doğaya zarar veren davranışlar konusunda <strong>kendimi sorumlu hissederim</strong>.</p>
+          <div class="likert"></div>
+        </div>
+      </div>
+
+      <!-- D. DİJİTAL İÇERİK VE FARKINDALIK -->
+      <div class="test-grup">
+        <h3>D. Dijital İçerik ve Farkındalık</h3>
+        <div class="test-soru" data-soru="16">
+          <p><span class="soru-no">16.</span> <strong>Sosyal medya</strong> üzerinden verilen çevre içeriklerinin davranışları etkileyebileceğini düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="17">
+          <p><span class="soru-no">17.</span> <strong>Hadis temelli dijital içerikler</strong> çevre bilincimi artırdı.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="18">
+          <p><span class="soru-no">18.</span> <strong>QR kod sistemi ve dijital görevler</strong> çevre konusunda farkındalık oluşturmamı sağladı.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="19">
+          <p><span class="soru-no">19.</span> <strong>Kısa videolar ve görseller</strong> sayesinde hadisleri günlük hayatla ilişkilendirebildim.</p>
+          <div class="likert"></div>
+        </div>
+        <div class="test-soru" data-soru="20">
+          <p><span class="soru-no">20.</span> <strong>Bu proje sayesinde</strong> çevreye bakış açımın olumlu yönde değiştiğini düşünüyorum.</p>
+          <div class="likert"></div>
+        </div>
+      </div>
+
+      <!-- AÇIK UÇLU SORULAR -->
+      <div class="test-grup">
+        <h3>📝 Açık Uçlu Sorular <small style="font-weight:400; color:var(--gri-metin); font-size:0.85rem;">(İsteğe bağlı)</small></h3>
+
+        <div class="test-acik-soru">
+          <label for="acik-1">1. Bu projede sizi en çok etkileyen <strong>hadis veya mesaj</strong> neydi?</label>
+          <textarea id="acik-1" data-acik="1" maxlength="500" placeholder="Düşüncelerini yaz..."></textarea>
+        </div>
+
+        <div class="test-acik-soru">
+          <label for="acik-2">2. Proje sonrasında günlük hayatınızda <strong>değiştirdiğiniz bir davranış</strong> oldu mu?</label>
+          <textarea id="acik-2" data-acik="2" maxlength="500" placeholder="Düşüncelerini yaz..."></textarea>
+        </div>
+
+        <div class="test-acik-soru">
+          <label for="acik-3">3. Sizce çevre bilinci oluştururken <strong>sünnet merkezli yaklaşım</strong> neden önemlidir?</label>
+          <textarea id="acik-3" data-acik="3" maxlength="500" placeholder="Düşüncelerini yaz..."></textarea>
+        </div>
+
+        <div class="test-acik-soru">
+          <label for="acik-4">4. Bu proje size <strong>ne hissettirdi</strong>?</label>
+          <textarea id="acik-4" data-acik="4" maxlength="500" placeholder="Düşüncelerini yaz..."></textarea>
+        </div>
+
+        <div class="test-acik-soru">
+          <label for="acik-5">5. Projeyle ilgili <strong>geliştirilmesini istediğiniz yönler</strong> nelerdir?</label>
+          <textarea id="acik-5" data-acik="5" maxlength="500" placeholder="Düşüncelerini yaz..."></textarea>
+        </div>
+      </div>
+
+      <div class="test-form-butonlar">
+        <button type="button" id="testIptal" class="btn-ikincil">İptal</button>
+        <button type="submit" id="testGonder" class="btn-birincil" disabled>📊 Sonucu Gör</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- SONUÇ EKRANI -->
+<section class="arka-beyaz" id="sonucBolum" style="display:none;">
+  <div class="konteyner">
+    <div class="bolum-baslik">
+      <span class="etiket">🎉 Sonuç</span>
+      <h2 id="sonucBaslik">Test Tamamlandı!</h2>
+      <p id="sonucAciklama">Cevapların kaydedildi. Aşağıdan ön test–son test karşılaştırmanı görebilirsin.</p>
+    </div>
+
+    <div id="sonucIcerik">
+      <!-- JS doldurur -->
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="index.html" class="btn-birincil">🏠 Ana Sayfaya Dön</a>
+      <button type="button" id="testTekrarla" class="btn-ikincil" style="border:none; cursor:pointer;">🔄 Yeni Bir Test Doldur</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-icerik">
+    <div class="footer-bolum">
+      <h4>🌿 Sünnetin İzinde Çevre</h4>
+      <p>Sosyalfest 2026 kapsamında hazırlanan bu proje; İslami çevre ahlakını günümüzün sürdürülebilirlik hedefleriyle buluşturmayı amaçlamaktadır.</p>
+    </div>
+    <div class="footer-bolum">
+      <h4>Sayfalar</h4>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hadisler.html">Hadisler Işığında Çevre</a>
+      <a href="hadis-arsivi.html">40 Hadiste Çevre</a>
+      <a href="pratik-rehber.html">Pratik Rehber</a>
+      <a href="medya.html">Medya & Projeler</a>
+      <a href="test.html">Ön/Son Test</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+    <div class="footer-bolum">
+      <h4>İletişim</h4>
+      <p>📸 Instagram: @sunnetin_izinde_doga_</p>
+      <p>✉️ <a href="iletisim.html">İletişim Formu</a></p>
+    </div>
+  </div>
+  <div class="footer-alt">
+    <p>© 2026 Sünnetin İzinde Çevre Projesi · Sosyalfest · Danışman: Emrah Hoca</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="test.js"></script>
+</body>
+</html>

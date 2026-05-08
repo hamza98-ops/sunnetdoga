@@ -1,0 +1,42 @@
+{
+  "name": "Sünnetin İzinde Çevre",
+  "short_name": "Sünnet & Çevre",
+  "description": "Peygamber Efendimiz'in çevre ahlakını günümüzün sürdürülebilirlik hedefleriyle buluşturan Sosyalfest 2026 projesi.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fefae0",
+  "theme_color": "#1b4332",
+  "lang": "tr-TR",
+  "dir": "ltr",
+  "categories": ["education", "lifestyle"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%231b4332'/><text x='50%25' y='55%25' text-anchor='middle' font-size='130' dominant-baseline='middle'>🌿</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%231b4332'/><text x='50%25' y='55%25' text-anchor='middle' font-size='340' dominant-baseline='middle'>🌿</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Bugünkü Görev",
+      "short_name": "Görev",
+      "description": "Bugünkü çevre görevini yap",
+      "url": "./pratik-rehber.html"
+    },
+    {
+      "name": "Ön/Son Test",
+      "short_name": "Test",
+      "description": "Çevre bilinci ölçeğini doldur",
+      "url": "./test.html"
+    }
+  ]
+}
