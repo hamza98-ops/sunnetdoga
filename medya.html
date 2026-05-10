@@ -85,6 +85,117 @@
     .instagram-post small { font-size: 0.75rem; opacity: 0.8; margin-top: 0.3rem; }
 
     .indirme-listesi { display: flex; flex-direction: column; gap: 1rem; }
+
+    /* YouTube Shorts Galerisi */
+    .shorts-bolum {
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 3rem;
+      color: #fff;
+      box-shadow: 0 10px 35px rgba(27,67,50,0.25);
+    }
+    .shorts-bolum-baslik {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .shorts-rozet {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: var(--altin);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.8rem;
+    }
+    .shorts-bolum h2 {
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .shorts-bolum > p.shorts-aciklama {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .shorts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+      margin-top: 2rem;
+    }
+    .short-kart {
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .short-kart:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+    }
+    .short-iframe-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%; /* 9:16 aspect ratio */
+      background: #000;
+    }
+    .short-iframe-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .short-altyazi {
+      padding: 0.9rem 1rem 1.1rem;
+      background: #fff;
+      color: var(--koyu-yesil);
+    }
+    .short-altyazi h4 {
+      font-size: 0.92rem;
+      margin-bottom: 0.3rem;
+      color: var(--koyu-yesil);
+      font-weight: 700;
+    }
+    .short-altyazi p {
+      font-size: 0.78rem;
+      color: var(--gri-metin);
+      line-height: 1.4;
+    }
+    .shorts-cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .shorts-cta a {
+      display: inline-block;
+      background: var(--altin);
+      color: var(--koyu-yesil);
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .shorts-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212,160,23,0.4);
+    }
+    @media (max-width: 600px) {
+      .shorts-bolum { padding: 1.8rem 1rem; }
+      .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+      .short-altyazi { padding: 0.7rem 0.7rem 0.9rem; }
+      .short-altyazi h4 { font-size: 0.82rem; }
+      .short-altyazi p { font-size: 0.72rem; }
+    }
   </style>
 </head>
 <body>
@@ -129,6 +240,61 @@
       <div class="bolum-baslik" style="text-align:left; margin-bottom:2rem;">
         <h2>🎬 Video Galerisi</h2>
         <p>Tanıtım filmimiz, hadis videolarımız ve etkinlik kayıtlarımız.</p>
+      </div>
+
+      <!-- YOUTUBE SHORTS — YAYINDA -->
+      <div class="shorts-bolum">
+        <div class="shorts-bolum-baslik">
+          <span class="shorts-rozet">📱 YAYINDA</span>
+          <h2>YouTube Shorts Serimiz</h2>
+          <p class="shorts-aciklama">Çevre bilincini sünnet ışığında anlatan kısa videolarımız YouTube kanalımızda yayında. Bir dakikadan kısa, paylaşıma hazır içerikler.</p>
+        </div>
+
+        <div class="shorts-grid">
+          <div class="short-kart">
+            <div class="short-iframe-wrap">
+              <iframe src="https://www.youtube.com/embed/YTgVVqwrvgg" title="Sünnetin İzinde Çevre — Shorts 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="short-altyazi">
+              <h4>🌿 Sünnetin İzinde Çevre</h4>
+              <p>Kısa video #1 — kanalımızdan</p>
+            </div>
+          </div>
+
+          <div class="short-kart">
+            <div class="short-iframe-wrap">
+              <iframe src="https://www.youtube.com/embed/8uWYYKGXuTM" title="Sünnetin İzinde Çevre — Shorts 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="short-altyazi">
+              <h4>🌿 Sünnetin İzinde Çevre</h4>
+              <p>Kısa video #2 — kanalımızdan</p>
+            </div>
+          </div>
+
+          <div class="short-kart">
+            <div class="short-iframe-wrap">
+              <iframe src="https://www.youtube.com/embed/eKSIm_4wT6Y" title="Sünnetin İzinde Çevre — Shorts 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="short-altyazi">
+              <h4>🌿 Sünnetin İzinde Çevre</h4>
+              <p>Kısa video #3 — kanalımızdan</p>
+            </div>
+          </div>
+
+          <div class="short-kart">
+            <div class="short-iframe-wrap">
+              <iframe src="https://www.youtube.com/embed/2_t_9tmd_MQ" title="Sünnetin İzinde Çevre — Shorts 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="short-altyazi">
+              <h4>🌿 Sünnetin İzinde Çevre</h4>
+              <p>Kısa video #4 — kanalımızdan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="shorts-cta">
+          <a href="https://www.youtube.com/@sunnetinizindedoga/shorts" target="_blank" rel="noopener">▶️ Tüm Shorts Videolarımızı İzle</a>
+        </div>
       </div>
 
       <!-- Tanıtım Videosu - Ana -->
